@@ -1,0 +1,43 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            
+            <li class="<%= 'active' if params[:controller] == 'admin/about' %>">
+                <a href="#"><i class="fa fa-file-word-o"></i> <%= t('views.admin.menu.about') %><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="/admin/about/1">　<%= about_group_name("1") %></a>
+                    </li>
+                    <li>
+                        <a href="/admin/about/2">　<%= about_group_name("2") %></a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="<%= 'active' if params[:controller] == 'admin/news' %>">
+                <a href="#"><i class="fa fa-rss-square"></i> <%= t('views.admin.menu.news') %><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="/admin/news/1">　<%= news_group_name("1") %></a>
+                    </li>
+                    <li>
+                        <a href="/admin/news/2">　<%= news_group_name("2") %></a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="<%= 'active' if params[:controller] == 'admin/album' %>">
+                <a href="#"><i class="fa fa-file-image-o"></i> <%= t('views.admin.menu.album') %><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="/admin/album/1">　<%= album_group_name("1") %></a>
+                    </li>
+                    <li>
+                        <a href="/admin/album/2">　<%= album_group_name("2") %></a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,37 @@
+<h4 class="navbar-brand"><%= album_group_name(params[:group]) %></h4>
+<table width='100%'>
+  <tr>
+    <td align='right' >
+    	<%= link_to raw('<i class="fa fa-plus"></i>' + t('views.button.add') + t('views.album')), new_admin_album_path, class: 'btn btn-default' %>
+    </td>
+  </tr>
+</table>
+<br>
+<% if @admin_album.blank? %>
+  <div align="center" style="position: relative; top:100px;"><%= t('views.no_data') %></div>
+<% else %>
+	<table class="table table-bordered">
+	  <thead>
+	    <tr>
+	      <th><%= t('views.album') + t('views.list_title') %></th>
+	      <th width="10%"><%= t('views.list_date') %></th>
+	      <th width="15%"><%= t('views.list_option') %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @admin_album.each do |album| %>
+	      <tr>
+	        <td>
+	          <%= link_to album.title, admin_album_path(params[:group], album) %>
+	        </td>
+	        <td align="center"><%= album.created_at.strftime("%Y-%m-%d") %></td>
+	        <td align="center">
+	          <%= link_to raw('<i class="fa fa-pencil-square-o"></i>' + t('views.button.edit')), edit_admin_album_path(params[:group], album), class: 'btn btn-default' %> 
+	          <%= link_to raw('<i class="fa fa-trash-o"></i>' + t('views.button.delete')), admin_album_path(params[:group], album), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	<%= paginate @admin_album %>
+<% end %>

@@ -1,0 +1,53 @@
+<h4 class="navbar-brand"><%= album_group_name(params[:group]) %></h4>
+<table class="table">
+	<tr>
+		<th width="15%"><%= t('views.list_date') %></th>
+		<td><%= @admin_album.created_at.strftime("%Y-%m-%d") %></td>
+	</tr>
+	<tr>
+		<th><%= t('views.album') + t('views.list_title') %></th>
+		<td><%= @admin_album.title %></td>	
+	</tr>
+	<tr>
+		<th><%= t('views.album') + t('views.list_content') %></th>
+		<td><%= raw(@admin_album.content) %></td>
+	</tr>
+</table>
+<table width="100%">
+	<tr>
+		<td align="left">
+			<input type="checkbox" name="check_all" id="check_all" value="all" onclick="javascript:ckeck_all_photos(this);"> <%= t('views.check_all') %>
+		</td>
+		<td align="right">
+			| <a href="javascript:delete_checked_photos();"><%= t('views.button.delete') + t('views.photo') %></a> | <a href="<%= admin_album_photos_new_path(params[:group], params[:id]) %>"><%= t('views.button.add') + t('views.photo') %></a> |
+		</td>
+	</tr>
+</table>
+<br>
+<% if @admin_photo.blank? %>
+	<div align="center" class="navbar"><%= t('views.no_data') %></div>
+<% else %>
+	<!-- <form name="form1" id="form1" method="post" action="<%= admin_album_photos_destory_path(params[:group], params[:id]) %>"> -->
+	<%= simple_form_for("form1", url: admin_album_photos_destory_path(params[:group], params[:id]), method: :post, html: {id: "form1", name: "form1"}) do |f| %>
+		<% @admin_photo.each do |photo| %>
+			<div class='col-xs-6 col-md-3' align="center">
+				<a href="<%= photo.file_url %>" class="fancybox" rel="gallery" title="<%= photo.name %>">
+					<%= image_tag(photo.file_url(:thumb), alt: photo.name) %>
+				</a>
+				<p align='center'>
+					<input type="checkbox" name="delete_id_array[]" value="<%= photo.id %>"> <%= photo.name %>
+					<!--
+						<% link_to raw('<i class="fa fa-trash-o"></i>' + t('views.button.delete')), '/admin/album/' + params[:group] + '/' + params[:id] + '/photos/' + photo.id.to_s, method: :delete, data: { confirm: 'Are you sure?' } %>
+					-->
+				</p>
+			</div>
+		<% end %>
+	<% end %>
+	<!-- </form> -->
+<% end %>
+<br>
+<table width='100%' align='center'>
+	<tr>
+		<td align='center'><input type='button' value='<%= t('views.button.back') %>' class='btn' onclick="javascript:location.href='<%= admin_album_index_path(params[:group]) %>';"></td>
+	</tr>
+</table>

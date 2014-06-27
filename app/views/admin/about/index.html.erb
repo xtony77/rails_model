@@ -1,0 +1,14 @@
+<h4 class="navbar-brand"><%= about_group_name(params[:group]) %></h4>
+<table width='100%'>
+  <tr>
+    <td align='right' >
+    	<%= link_to raw('<i class="fa fa-plus"></i>' + t('views.button.edit')), @admin_about.blank? ? new_admin_about_path : edit_admin_about_path(params[:group], @admin_about.map{|f| f.id}), class: 'btn btn-default' %>
+    </td>
+  </tr>
+</table>
+<br>
+<% if @admin_about.blank? %>
+  <div align="center" style="position: relative; top:100px;"><%= t('views.no_data') %></div>
+<% else %>
+	<%= raw(@admin_about.map{|f| f.content}[0]) %>
+<% end %>

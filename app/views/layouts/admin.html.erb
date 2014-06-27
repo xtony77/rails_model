@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsModel-admin</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% if !flash[:notice].blank? %>
+		<div class="alert alert-success alert-dismissable fade in" id="alert-message">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
+	<% if !flash[:alert].blank? %>
+		<div class="alert alert-danger alert-dismissable fade in" id="alert-message">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<%= flash[:alert] %>
+		</div>
+	<% end %>
+	<div id="wrapper">
+		<%= render partial: "admin/common/header" %>
+		<%= render partial: "admin/common/nav" %>
+		<div id="page-wrapper">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

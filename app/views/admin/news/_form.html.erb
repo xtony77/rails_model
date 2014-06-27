@@ -1,0 +1,26 @@
+<%= simple_form_for([:admin, @admin_news], url: params[:id].blank? ? admin_news_index_path : admin_news_path, html: { multipart: true }) do |f| %>
+  <%= f.input :group, as: :hidden, input_html: {value: params[:group]} %>
+  <%= f.input :admin_id, as: :hidden, input_html: {value: current_admin.id} %>
+  <table class="table table-bordered">
+    <tr>
+      <th width="15%"><font color="red"><b>*</b></font><%= t('views.list_title') %></th>
+      <td><%= f.input :title, label:false, input_html: {class: 'form-control'} %></td>
+    </tr>
+    <tr>
+      <th><font color="red"><b>*</b></font><%= t('views.list_content') %></th>
+      <td><%= f.cktext_area :content, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><font color="red"><b>*</b></font><%= t('views.list_top') %></th>
+      <td><%= f.collection_radio_buttons :top, [['yes', t('views.button.radio_yes') + '　'] ,['no', t('views.button.radio_no')]], :first, :last %></td>
+    </tr>
+  </table>
+  <table width="100%" align="center" border="0">
+    <tr>
+      <td align="center">
+        <%= f.submit t('views.button.submit'), class:'btn btn-primary' %>
+        <input type="button" value="<%= t('views.button.back') %>" class="btn" onclick="javascript:history.back();">
+      </td>
+    </tr>
+  </table>
+<% end %>
