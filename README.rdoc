@@ -1,8 +1,8 @@
 == README
 
-ruby 2.1.0p0
-rails '4.1.1'
-mysql2
+ruby 2.1.0p0 <br>
+rails '4.1.1' <br>
+mysql2 <br>
 
-This project code, was I learn Ruby on Rails, and use it to design a website.
-Plan to make a website function model, like news, albums, files download, links page...
+This project code, was I learn Ruby on Rails, and use it to design a website. <br>
+Plan to make a website function model, like news, albums, files download, links page... <br>
