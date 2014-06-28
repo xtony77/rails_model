@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RailsModel</title>
+  <title>RailsModel</title>	
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style type="text/css">
+  	body{
+  		background: url(../img/bg.jpg) no-repeat center center fixed;
+  	}
+  </style>
 </head>
 <body>
-
-<%= yield %>
-
+<%= render partial: "common/header" %>
+<div class="container">
+	<%= yield %>
+</div>
+<%= render partial: "common/footer" %>
 </body>
 </html>

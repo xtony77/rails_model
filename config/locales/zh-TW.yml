@@ -1,6 +1,12 @@
 zh-TW:
   # views
   views:
+    title: "Rails test project"
+    menu:
+      about: "簡介"
+      news : "消息"
+      album: "相簿"
+
     list_title    : "標題"
     list_content  : "內容"
     list_date     : "建立時間"

@@ -20,3 +20,12 @@
 
 # dev.rake
 /lib/tasks/*.rake
+
+# ckeditor files
+/public/ckeditor_assets/*
+
+# upload files
+/public/uploads/*
+
+# tmp img
+/public/img
