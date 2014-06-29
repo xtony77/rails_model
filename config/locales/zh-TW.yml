@@ -3,6 +3,7 @@ zh-TW:
   views:
     title: "Rails test project"
     menu:
+      index: "首頁"
       about: "簡介"
       news : "消息"
       album: "相簿"
@@ -59,12 +60,9 @@ zh-TW:
   help:
     news_group:
       group_1: "最新消息"
-      group_2: "活動公告"
 
     about_group:
-      group_1: "機關簡介"
-      group_2: "組織架構"
+      group_1: "簡介"
 
     album_group:
       group_1: "活動花絮"
-      group_2: "成果照片"

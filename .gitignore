@@ -26,6 +26,3 @@
 
 # upload files
 /public/uploads/*
-
-# tmp img
-/public/img

@@ -32,7 +32,7 @@
       <% @admin_news.each do |news| %>
         <tr>
           <td>
-            <%= link_to news.title, admin_news_path(params[:group], news) %>
+            <%= link_to news.title, news_show_path(params[:group], news), :target => "_blank" %>
             <% if news.top == "yes" %><font color="red">[<%= t('views.list_top') %>]</font><% end %>
           </td>
           <td align="center"><%= news.created_at.strftime("%Y-%m-%d") %></td>

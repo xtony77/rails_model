@@ -16,28 +16,26 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                <li>
+                    <a href="<%= root_path %>"><%= t('views.menu.index') %></a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t('views.menu.about') %><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><%= t('help.about_group.group_1') %></li>
-                        <li class="divider"></li>
-                        <li><%= t('help.about_group.group_2') %></li>
+                        <li><%= link_to t('help.about_group.group_1'), about_path(1) %></li>
                     </ul>
                 </li>
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t('views.menu.news') %><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><%= t('help.news_group.group_1') %></li>
-                        <li class="divider"></li>
-                        <li><%= t('help.news_group.group_2') %></li>
+                        <li><%= link_to t('help.news_group.group_1'), news_path(1) %></li>
                     </ul>
                 </li>
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t('views.menu.album') %><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><%= t('help.album_group.group_1') %></li>
-                        <li class="divider"></li>
-                        <li><%= t('help.album_group.group_2') %></li>
+                        <li><%= link_to t('help.album_group.group_1'), album_path(1) %></li>
+                        <!-- <li class="divider"></li> -->
                     </ul>
                 </li>
             </ul>

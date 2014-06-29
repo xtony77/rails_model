@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NewsControllerTest < ActionController::TestCase
+class AlbumControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

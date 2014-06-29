@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="box">
+    <div class="col-lg-12">
+      <hr>
+      <h2 class="intro-text text-center"><strong><%= t('help.album_group.group_' + params[:group]) %></strong></h2>
+      <hr>
+      <table class="table">
+        <tr>
+          <th width="15%"><%= t('views.list_date') %></th>
+          <td><%= @album.created_at.strftime("%Y-%m-%d") %></td>
+        </tr>
+        <tr>
+          <th><%= t('views.album') + t('views.list_title') %></th>
+          <td><%= @album.title %></td>  
+        </tr>
+        <tr>
+          <th><%= t('views.album') + t('views.list_content') %></th>
+          <td><%= raw(@album.content) %></td>
+        </tr>
+      </table>
+      <div align="center">
+        <input type='button' value='<%= t('views.button.back') %>' class='btn btn-default' onclick='javascript:history.back();'>
+      </div>
+      <br>
+      <table width="100%" align="center">
+        <tr><td align="left">
+        <% @photo.each do |photo| %>
+          <div class='col-xs-6 col-md-3' align="center">
+            <a href="<%= photo.file_url %>" class="fancybox" rel="gallery" title="<%= photo.name %>">
+              <%= image_tag(photo.file_url(:thumb), alt: photo.name) %>
+            </a>
+            <p>&nbsp;</p>
+          </div>
+        <% end %>
+        </td></tr>
+      </table>
+      <br>
+      <div align="center">
+        <input type='button' value='<%= t('views.button.back') %>' class='btn btn-default' onclick='javascript:history.back();'>
+      </div>
+    </div>
+  </div>
+</div>

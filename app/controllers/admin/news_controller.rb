@@ -1,6 +1,6 @@
 class Admin::NewsController < Admin::ApplicationController
-	before_action :check_news_group, :only => [:index, :show, :new, :edit]
-	before_action :find_news_id, :only => [:show, :edit, :update, :destroy]
+	before_action :check_news_group, :only => [:index, :new, :edit]
+	before_action :find_news_id, :only => [:edit, :update, :destroy]
 
 	def index
 		sql_query = ["`group` = ?", params[:group]]
@@ -9,9 +9,6 @@ class Admin::NewsController < Admin::ApplicationController
 		end
 
 		@admin_news = News.where(sql_query).order("top DESC, id DESC").page(params[:page])
-	end
-
-	def show
 	end
 
 	def new

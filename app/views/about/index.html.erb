@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="box">
+    <div class="col-lg-12">
+      <hr>
+      <h2 class="intro-text text-center"><strong><%= t('help.about_group.group_' + params[:group]) %></strong></h2>
+      <hr>
+      <%= raw(@about.map{|f| f.content}[0]) %>
+      <br>
+      <div align="center">
+        <input type='button' value='<%= t('views.button.back') %>' class='btn btn-default' onclick='javascript:history.back();'>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admins
   
+  get 'about/:group' => 'about#index', as: 'about'
+  get 'news/:group' => 'news#index', as: 'news'
+  get 'news/:group/:id' => 'news#show', as: 'news_show'
+  get 'album/:group' => 'album#index', as: 'album'
+  get 'album/:group/:id' => 'album#show', as: 'album_show'
+
   namespace :admin do
     root      'index#index'
-    resources :news, path: 'news/:group'
+    resources :news, path: 'news/:group', except: [:show]
     resources :about, path: 'about/:group', except: [:show]
     resources :album, path: 'album/:group' do
       get 'photos/new'      => 'album#photo_new'
