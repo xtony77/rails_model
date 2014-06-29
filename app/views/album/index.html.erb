@@ -6,10 +6,14 @@
       <hr>
       <% @album.each do |album| %>
         <div class='col-xs-6 col-md-3' align="center">
-          <% @photo.each do |photo| %>
-            <a href="<%= album_show_path(params[:group], album.id) %>" title="<%= album.title %>">
-              <%= image_tag(photo.file_url(:thumb), alt: album.title, class: 'img-thumbnail') %>
-            </a>
+          <% if @photo.blank? %>
+            <img src="/img/no_image.jpg" width="200" alt="no images">
+          <% else %>
+            <% @photo.each do |photo| %>
+              <a href="<%= album_show_path(params[:group], album.id) %>" title="<%= album.title %>">
+                <%= image_tag(photo.file_url(:thumb), alt: album.title, class: 'img-thumbnail') %>
+              </a>
+            <% end %>
           <% end %>
           <p align='center'><%= album.title %></p>
         </div>

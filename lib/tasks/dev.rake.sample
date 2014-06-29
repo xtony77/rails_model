@@ -9,5 +9,13 @@ namespace :dev do
       u = Admin.new({email: '',
                     password: '', password_confirmation: ''})
       u.save!
+
+      About.create({group: '1', content: '<p>這個網站是我的Ruby on Rails的作品之一，有興趣大家可以互相討論學習</p><p>Email：xtony77@gmail.com<br />github：https://github.com/xtony77/</p><p><b>~by xtony77</b></p>', 
+      							admin_id: '1'})
+
+      News.create({group: '1', title: '歡迎大家來參觀我的作品網站^^', content: '<p>這個網站是我的Ruby on Rails的作品之一，有興趣大家可以互相討論學習</p><p>Email：xtony77@gmail.com<br />github：https://github.com/xtony77/</p><p><b>~by xtony77</b></p>', 
+      						admin_id: '1', top: 'yes'})
+
+      Album.create({group: '1', title: '風景美圖', content: '漂亮的照片給各位觀賞^^', admin_id: '1'})
   end
 end
