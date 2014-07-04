@@ -17,7 +17,13 @@
             <ul class="dropdown-menu dropdown-user">
                 <!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li> -->
-                <!-- <li class="divider"></li> -->
+                <li>
+                    <!-- <i class="fa fa-sign-out fa-fw"></i> -->
+                    <%= link_to edit_admin_registration_path do %>
+                        <i class="fa fa-user fa-fw"></i> <%= t('views.admin.menu.account_edit') %>
+                    <% end %>
+                </li>
+                <li class="divider"></li>
                 <li>
                     <!-- <i class="fa fa-sign-out fa-fw"></i> -->
                     <%= link_to destroy_admin_session_path, :method => :delete do %>

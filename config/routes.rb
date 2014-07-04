@@ -13,11 +13,12 @@ Rails.application.routes.draw do
     root      'index#index'
     resources :news, path: 'news/:group', except: [:show]
     resources :about, path: 'about/:group', except: [:show]
-    resources :album, path: 'album/:group' do
-      get 'photos/new'      => 'album#photo_new'
-      post 'photos'         => 'album#photo_create'
-      post 'photos/destory' => 'album#photo_destroy'
+    resources :albums, path: 'albums/:group' do
+      get 'photos/new'      => 'albums#photo_new'
+      post 'photos'         => 'albums#photo_create'
+      post 'photos/destory' => 'albums#photo_destroy'
     end
+    resources :admins, except: [:show, :edit, :update]
   end
 
   root 'index#index'

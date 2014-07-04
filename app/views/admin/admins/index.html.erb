@@ -1,0 +1,41 @@
+<h4 class="navbar-brand"><%= t('views.admin.menu.admin') %></h4>
+<table width='100%'>
+  <tr>
+    <td align='right' >
+      <%= link_to raw('<i class="fa fa-plus"></i>' + t('views.button.add')), new_admin_admin_path, class: 'btn btn-default' %>
+    </td>
+  </tr>
+</table>
+<% if @admin.blank? %>
+  <div align="center" style="position: relative; top:100px;"><%= t('views.no_data') %></div>
+<% else %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th><%= t('views.list_mail') %></th>
+        <th><%= t('views.list_login_count') %></th>
+        <th><%= t('views.list_login_last_time') %></th>
+        <th><%= t('views.list_login_last_ip') %></th>
+        <th width="15%"><%= t('views.list_date') %></th>
+        <th width="15%"><%= t('views.list_option') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @admin.each do |admin| %>
+        <tr>
+          <td><%= admin.email %></td>
+          <td><%= admin.sign_in_count %></td>
+          <td align="center"><%= admin.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td align="center"><%= admin.last_sign_in_ip %></td>
+          <td align="center"><%= admin.created_at.strftime("%Y-%m-%d") %></td>
+          <td align="center">
+            <% if admin.id != 1 %>
+              <%= link_to raw('<i class="fa fa-trash-o"></i>' + t('views.button.delete')), admin_admin_path(admin), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @admin %>
+<% end %>

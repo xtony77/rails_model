@@ -24,10 +24,20 @@
                 <a href="#"><i class="fa fa-file-image-o"></i> <%= t('views.admin.menu.album') %><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="/admin/album/1">　<%= album_group_name("1") %></a>
+                        <a href="/admin/albums/1">　<%= album_group_name("1") %></a>
                     </li>
                 </ul>
             </li>
+            <% if current_admin.id == 1 %>
+                <li class="<%= 'active' if params[:controller] == 'admin/admins' %>">
+                    <a href="#"><i class="fa fa-users"></i> <%= t('views.admin.menu.admin') %><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/admin/admins">　<%= t('views.admin.menu.admin') %></a>
+                        </li>
+                    </ul>
+                </li>
+            <% end %>
 
         </ul>
     </div>

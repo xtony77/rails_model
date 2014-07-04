@@ -1,4 +1,4 @@
-<%= simple_form_for([:admin, @admin_album], url: params[:id].blank? ? admin_album_index_path : admin_album_path, html: { multipart: true }) do |f| %>
+<%= simple_form_for([:admin, @admin_album], url: params[:id].blank? ? admin_albums_path : admin_album_path, html: { multipart: true }) do |f| %>
   <%= f.input :group, as: :hidden, input_html: {value: params[:group]} %>
   <%= f.input :admin_id, as: :hidden, input_html: {value: current_admin.id} %>
   <table class="table table-bordered">

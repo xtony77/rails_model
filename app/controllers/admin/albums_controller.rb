@@ -1,4 +1,4 @@
-class Admin::AlbumController < Admin::ApplicationController
+class Admin::AlbumsController < Admin::ApplicationController
 	before_action :check_album_group, :only => [:index, :show, :new, :edit]
 	before_action :find_album_id, :only => [:show, :edit, :update, :destroy]
 
@@ -18,7 +18,7 @@ class Admin::AlbumController < Admin::ApplicationController
 		@admin_album = Album.new(admin_album_params)
 		if @admin_album.save
 			flash[:notice] = "successfully"
-			redirect_to admin_album_index_path
+			redirect_to admin_albums_path
 		else
 			flash[:alert] = "error"
 			render :action => :new
@@ -31,7 +31,7 @@ class Admin::AlbumController < Admin::ApplicationController
 	def update
 		if @admin_album.update(admin_album_params)
 			flash[:notice] = "successfully"
-			redirect_to admin_album_index_path
+			redirect_to admin_albums_path
 		else
 			flash[:alert] = "error"
 			render :action => :edit
@@ -45,7 +45,7 @@ class Admin::AlbumController < Admin::ApplicationController
 			p.destroy
 		end
 		@admin_album.destroy
-		redirect_to admin_album_index_path
+		redirect_to admin_albums_path
 	end
 
 	def photo_new
@@ -74,7 +74,7 @@ class Admin::AlbumController < Admin::ApplicationController
 		end
 
 		def admin_album_params
-			@admin_album = params.require(:album).permit(:group, :title, :content, :admin_id)
+			params.require(:album).permit(:group, :title, :content, :admin_id)
 		end
 
 		def check_album_group

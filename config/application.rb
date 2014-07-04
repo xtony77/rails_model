@@ -22,13 +22,14 @@ module RailsModel
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
+    # set controller layout
     config.to_prepare do
       Admin::ApplicationController.layout "admin"
       Devise::SessionsController.layout "devise_admin"
-      # Devise::RegistrationsController.layout "devise_admin"
+      Devise::RegistrationsController.layout "admin"
       # Devise::ConfirmationsController.layout "devise_admin"
       # Devise::UnlocksController.layout "devise_admin"            
-      # Devise::PasswordsController.layout "devise_admin"        
+      Devise::PasswordsController.layout "devise_admin"        
     end
 
   end
