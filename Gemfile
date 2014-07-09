@@ -3,8 +3,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
-# Use mysql as the database for Active Record
-gem 'mysql2'
+
+group :development, :test, :production do
+	# Use mysql as the database for Active Record
+	gem 'mysql2'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -55,7 +59,9 @@ gem 'fancybox2-rails'
 # fix pow upload large files
 gem 'sinatra'
 
-gem 'pg'
+group :staging, :production do
+  gem 'pg'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
