@@ -55,6 +55,8 @@ gem 'fancybox2-rails'
 # fix pow upload large files
 gem 'sinatra'
 
+gem 'mysql2psql'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
