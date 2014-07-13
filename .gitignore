@@ -19,7 +19,7 @@
 /config/database.yml
 
 # dev.rake
-/lib/tasks/*.rake
+/lib/tasks/dev.rake
 
 # ckeditor files
 /public/ckeditor_assets/*

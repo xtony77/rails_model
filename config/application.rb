@@ -22,6 +22,8 @@ module RailsModel
     config.i18n.default_locale = 'zh-TW'
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w(ckeditor/*)
 
     # set controller layout
     config.to_prepare do
