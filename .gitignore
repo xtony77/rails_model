@@ -16,7 +16,7 @@
 /tmp
 
 # config setting
-/config/*.yml
+/config/database.yml
 
 # dev.rake
 /lib/tasks/*.rake
@@ -26,3 +26,8 @@
 
 # upload files
 /public/uploads/*
+
+# deploy
+/config/deploy.rb
+/config/deploy/production.rb
+/config/deploy/staging.rb
