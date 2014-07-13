@@ -52,8 +52,14 @@ gem 'mini_magick'
 # view photo like lightbox
 gem 'fancybox2-rails'
 
-# fix pow upload large files
-gem 'sinatra'
+
+group :development do
+	# fix pow upload large files
+	gem 'sinatra'
+	gem 'capistrano',  '~> 3.1'
+	gem 'capistrano-rvm', '~> 0.1.1'
+	gem 'capistrano-rails', '~> 1.1'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
