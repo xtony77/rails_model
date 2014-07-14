@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require_directory .
 //= require fancybox
+//= require ckeditor/ckeditor
 
 $(document).ready(function() {
   $(".fancybox").fancybox();
