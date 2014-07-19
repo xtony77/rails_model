@@ -17,6 +17,7 @@
 
 # config setting
 /config/database.yml
+/config/application.yml
 
 # dev.rake
 /lib/tasks/dev.rake

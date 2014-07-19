@@ -52,6 +52,8 @@ gem 'mini_magick'
 # view photo like lightbox
 gem 'fancybox2-rails'
 
+# api key setting
+gem "settingslogic"
 
 group :development do
 	# fix pow upload large files

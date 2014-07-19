@@ -1,0 +1,13 @@
+defaults: &defaults
+	smtp_host    : ""
+  smtp_username: ""
+  smtp_password: ""
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
