@@ -1,15 +1,19 @@
 <h4 class="navbar-brand"><%= news_group_name(params[:group]) %></h4>
-<form name='form1' method='get' action='' >  
-  <table width='100%'>
-    <tr>
-      <td>
-        <%= t('views.list_title') + t('views.search_keyword') %> <input type='text' name='search' id='search' value="">
-        <input type='submit' class='btn btn-primary' value='<%= t('views.button.search') %>'>
-        <input type='button' class='btn' value='<%= t('views.button.clean') %>' onclick="">
-      </td>
-    </tr>
-  </table>
-</form>
+<div class="row">
+  <div class="col-lg-12">
+    <form name='form1' method='get' action='' >  
+      <table width='100%'>
+        <tr>
+          <td>
+            <%= t('views.list_title') + t('views.search_keyword') %> <input type='text' name='search' id='search' value="">
+            <input type='submit' class='btn btn-primary' value='<%= t('views.button.search') %>'>
+            <input type='button' class='btn' value='<%= t('views.button.clean') %>' onclick="">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
 <table width='100%'>
   <tr>
     <td align='right' >

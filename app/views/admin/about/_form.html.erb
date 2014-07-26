@@ -1,18 +1,22 @@
-<%= simple_form_for([:admin, @admin_about], url: params[:id].blank? ? admin_about_index_path : admin_about_path, html: { multipart: true }) do |f| %>
-  <%= f.input :group, as: :hidden, input_html: {value: params[:group]} %>
-  <%= f.input :admin_id, as: :hidden, input_html: {value: current_admin.id} %>
-  <table class="table table-bordered">
-    <tr>
-      <th width="15%"><font color="red"><b>*</b></font><%= t('views.list_content') %></th>
-      <td><%= f.cktext_area :content, class: 'form-control' %></td>
-    </tr>
-  </table>
-  <table width="100%" align="center" border="0">
-    <tr>
-      <td align="center">
-        <%= f.submit t('views.button.submit'), class:'btn btn-primary' %>
-        <input type="button" value="<%= t('views.button.back') %>" class="btn" onclick="javascript:history.back();">
-      </td>
-    </tr>
-  </table>
-<% end %>
+<div class="row">
+  <div class="col-lg-12">
+    <%= simple_form_for([:admin, @admin_about], url: params[:id].blank? ? admin_about_index_path : admin_about_path, html: { multipart: true }) do |f| %>
+      <%= f.input :group, as: :hidden, input_html: {value: params[:group]} %>
+      <%= f.input :admin_id, as: :hidden, input_html: {value: current_admin.id} %>
+      <table class="table table-bordered">
+        <tr>
+          <th width="15%"><font color="red"><b>*</b></font><%= t('views.list_content') %></th>
+          <td><%= f.cktext_area :content, class: 'form-control' %></td>
+        </tr>
+      </table>
+      <table width="100%" align="center" border="0">
+        <tr>
+          <td align="center">
+            <%= f.submit t('views.button.submit'), class:'btn btn-primary' %>
+            <input type="button" value="<%= t('views.button.back') %>" class="btn" onclick="javascript:history.back();">
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
